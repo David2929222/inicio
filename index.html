@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rouxtic - Catálogo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #660505;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        nav img {
+            width: 50px;
+            height: auto;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+        .nav-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            
+        }
+        .menu-mobile {
+            display: none;
+            flex-direction: column;
+            background-color: #660505;
+            position: relative;
+            left: 0;
+            width: 100%;
+            text-align: left;
+        }
+        .menu-mobile a {
+            color: white;
+            padding: 10px;
+            border-bottom: 1px solid #555;
+            text-decoration: none;
+            justify-content: left;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .menu-mobile.active {
+                display: flex;
+            }
+        }
+        .page {
+            display: none;
+        }
+        .page img {
+            width: 375px;
+        }
+        .home-content img {
+            width: 150px;
+            text-align: center;
+            border-radius: 30px;
+        }
+        .active {
+            display: block;
+        }
+        .home-content ul {
+            text-align: center;
+            justify-content: center;
+
+        }
+        .home-content img {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'block';
+        }
+        function toggleMenu() {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            showPage('inicio');
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <img src="l1.jpg" alt="Logo Rouxtic" onclick="showPage('inicio')">
+        <div class="nav-links">
+            <a onclick="showPage('inicio')">Inicio</a>
+            <a onclick="showPage('menu')">Menú</a>
+            <a onclick="showPage('plato-del-dia')">Plato del Día</a>
+            <a onclick="showPage('horarios')">Horarios</a>
+            <a onclick="showPage('contacto')">Contacto</a>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+    <div id="mobile-menu" class="menu-mobile">
+        <a onclick="showPage('inicio'); toggleMenu()">Inicio</a>
+        <a onclick="showPage('menu'); toggleMenu()">Menú</a>
+        <a onclick="showPage('plato-del-dia'); toggleMenu()">Plato del Día</a>
+        <a onclick="showPage('horarios'); toggleMenu()">Horarios</a>
+        <a onclick="showPage('contacto'); toggleMenu()">Contacto</a>
+    </div>
+    
+    <div id="inicio" class="page">
+        <img src="g1.jpg" alt="Bienvenida">
+        <img src="g2.jpg" alt="Bienvenida">
+        <img src="g3.jpg" alt="Bienvenida">
+        <h1></h1>
+        <div class="home-content">
+            <h2>Bienvenidos</h2>
+            <p>Descubre nuestra historia, nuestra pasión por la comida y el excelente servicio que ofrecemos.</p>
+            <h2>Nuestra Carta</h2>
+            <ul>
+
+                <img src="m1.jpg" alt="Logo Rouxtic" onclick="showPage('menu')">
+                <p>Cafe</p>
+                <img src="m2.jpg" alt="Logo Rouxtic" onclick="showPage('menu')">
+                <p>Pasteles</p>
+                <img src="m3.jpg" alt="Logo Rouxtic" onclick="showPage('menu')">
+                <p>Sandwiches</p>
+                <img src="m4.jpg" alt="Logo Rouxtic" onclick="showPage('menu')">
+                <p>Bebidas</p>
+
+            </ul>
+
+        </div>
+    </div>
+    
+    <div id="menu" class="page">
+        <title>Carta de Cafetería</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            color: #660505;
+            margin-top: 20px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #660505;
+            margin-top: 30px;
+        }
+        .menu-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .menu-category {
+            margin-bottom: 30px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        .menu-item h3 {
+            font-size: 20px;
+            color: #444;
+            margin: 0;
+        }
+        .menu-item p {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .menu-item span {
+            font-size: 18px;
+            color: #660505;
+            font-weight: bold;
+        }
+        .menu-item img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-left: 15px;
+        }
+        .daily-special img{
+            width: 200px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Carta de Cafetería</h1>
+    <div class="menu-container">
+        <!-- Cafés -->
+        <div class="menu-category">
+            <h2>Cafés</h2>
+            <div class="menu-item">
+                <img src="m1.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Café Americano</h3>
+                    <p>Café negro fuerte y aromático.</p>
+                </div>
+                <span>$2.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="m1.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Latte</h3>
+                    <p>Espresso con leche vaporizada y un toque de espuma.</p>
+                </div>
+                <span>$3.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="m1.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Capuchino</h3>
+                    <p>Espresso, leche vaporizada y espuma de leche.</p>
+                </div>
+                <span>$3.00</span>
+            </div>
+        </div>
+
+        <!-- Pasteles -->
+        <div class="menu-category">
+            <h2>Pasteles</h2>
+            <div class="menu-item">
+                <img src="m2.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Pastel de Chocolate</h3>
+                    <p>Delicioso pastel de chocolate con crema.</p>
+                </div>
+                <span>$4.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="m2.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Cheesecake de Frutos Rojos</h3>
+                    <p>Suave cheesecake con salsa de frutos rojos.</p>
+                </div>
+                <span>$4.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="m2.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Pastel de Zanahoria</h3>
+                    <p>Pastel esponjoso con nueces y crema de queso.</p>
+                </div>
+                <span>$3.80</span>
+            </div>
+        </div>
+
+        <!-- Sándwiches -->
+        <div class="menu-category">
+            <h2>Sándwiches</h2>
+            <div class="menu-item">
+                <img src="m3.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Sándwich de Pollo</h3>
+                    <p>Pollo asado, lechuga, tomate y mayonesa.</p>
+                </div>
+                <span>$5.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="m3.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Sándwich de Jamón y Queso</h3>
+                    <p>Jamón, queso, lechuga y tomate.</p>
+                </div>
+                <span>$4.50</span>
+            </div>
+            <div class="menu-item">
+                <img src="m3.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Sándwich Vegetariano</h3>
+                    <p>Aguacate, espinacas, tomate y queso fresco.</p>
+                </div>
+                <span>$4.80</span>
+            </div>
+        </div>
+
+        <!-- Bebidas -->
+        <div class="menu-category">
+            <h2>Bebidas</h2>
+            <div class="menu-item">
+                <img src="m4.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Jugo de Naranja Natural</h3>
+                    <p>Jugo fresco exprimido de naranjas.</p>
+                </div>
+                
+                <span>$3.00</span>
+            </div>
+            <div class="menu-item">
+                <img src="m4.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Limonada</h3>
+                    <p>Limonada casera con un toque de menta.</p>
+                </div>
+                <span>$2.80</span>
+            </div>
+            <div class="menu-item">
+                <img src="m4.jpg" alt="Café Americano" class="menu-img">
+                <div>
+                    <h3>Té Helado</h3>
+                    <p>Té negro con limón y hielo.</p>
+                </div>
+                <span>$2.50</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <div id="plato-del-dia" class="page">
+        <h1>Platos del Día</h1>
+        <div class="daily-special">
+            <img src="p4.jpg" alt="Plato del Día">
+            <p>Ensalada</p>
+        </div>
+    </div>
+    
+    <div id="horarios" class="page">
+        <h1>Horarios</h1>
+        <p>Lunes a Viernes: 10:00 AM - 10:00 PM</p>
+        <p>Sábados y Domingos: 11:00 AM - 11:00 PM</p>
+    </div>
+    
+    <div id="contacto" class="page">
+        <h1>Contacto</h1>
+        <p>Teléfono: 123-456-7890</p>
+        <p>Email: contacto@rouxtic.com</p>
+    </div>
+</body>
+</html>
